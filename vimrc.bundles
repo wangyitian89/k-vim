@@ -17,7 +17,7 @@ filetype off " required! turn off
 " inspired by spf13, 自定义需要的插件集合
 if !exists('g:bundle_groups')
     " let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'ruby', 'shell', 'markdown', 'html', 'css', 'less', 'coffeescript', 'tmux', 'json', 'beta']
-    let g:bundle_groups=['python', 'javascript', 'markdown', 'html', 'css', 'tmux', 'beta']
+    let g:bundle_groups=['python', 'javascript', 'golang', 'php', 'shell', 'markdown', 'html', 'css', 'less', 'json', 'beta']
 endif
 
 " ----------------------------------------------------------------------------
@@ -45,9 +45,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 代码自动补全
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 " 自动补全单引号，双引号等
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
 Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 
@@ -55,6 +55,7 @@ Plug 'docunext/closetag.vim', { 'for': ['html', 'xml'] }
 " 快速注释
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'editorconfig/editorconfig-vim'
 
 " 快速加入修改环绕字符
 " for repeat -> enhance surround.vim, . to repeat command
@@ -150,6 +151,9 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
 Plug 'majutsushi/tagbar'
 
+" clang format
+Plug 'rhysd/vim-clang-format'
+
 " text object
 " 支持自定义文本对象
 Plug 'kana/vim-textobj-user'
@@ -181,6 +185,8 @@ if count(g:bundle_groups, 'golang')
     " 2. :GoInstallBinaries
     " vimgo  https://github.com/fatih/vim-go
     Plug 'fatih/vim-go', {'for': 'go'}
+    let g:go_version_warning = 0
+    let g:go_fmt_command = "goimports"
 endif
 
 
@@ -742,6 +748,7 @@ endif
     let g:NERDTreeMapOpenVSplit = 'v'
     " fix Nerdtree ^G before folder and file names OSX terminal vim
     let g:NERDTreeNodeDelimiter = "\u00a0"
+    let NERDTreeWinPos="right"
 
 
     " nerdtreetabs

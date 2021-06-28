@@ -75,6 +75,9 @@ set nobackup
 " 关闭交换文件
 set noswapfile
 
+set autowrite
+let g:go_fmt_command = "goimports"
+
 
 " TODO: remove this, use gundo
 " create undo file
@@ -498,8 +501,9 @@ nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 autocmd TabLeave * let g:last_active_tab = tabpagenr()
 
 " 新建tab  Ctrl+t
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-t>     <Esc>:tabnew<CR>
+map <leader>to :tabnew<cr>
+" nnoremap <C-t>     :tabnew<CR>
+" inoremap <C-t>     <Esc>:tabnew<CR>
 
 
 " => 选中及操作改键
